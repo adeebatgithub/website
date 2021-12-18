@@ -1,1 +1,74 @@
-html
+
+<style>
+    
+    body{
+        background : #008080;
+    }
+    .topbar{
+        background : #333;
+        overflow : hidden;
+    }
+    .topbar h1{
+        text-align : center;
+        color : white;
+    }
+    .box{
+        background : #333;
+        width : 250px;
+        height : 280px;
+        border : 10px solid white;
+        margin-left : 360;
+        margin-top : 200;
+        padding : 10px;
+        position : ;
+    }
+    .box h3{
+        text-align : left;
+        font-size : 17px;
+        color : white;
+    }
+    .box button{
+        margin-top: 110px;
+        width: 100%;
+        background-color: #ffffff;
+        color: #080710;
+        padding: 15px 0;
+        font-size: 18px;
+        font-weight: 600;
+        border-radius: 5px;
+    }
+    .box #err{
+        color : white;
+        text-align : center;
+    }
+    .t{
+        color : white;
+    }
+    
+</style>
+
+<div class='topbar'>
+    <h1>Test Site</h1>
+</div>
+
+<div class='box'>
+    <form action="{% url 'signup' %}" method='POST'>
+        {% csrf_token %}
+        <h3>Username</h3>
+        <div id='inp'>
+            {{ form.username }}
+        </div>
+        <h3>Password</h3>
+        <div id='inp'>
+            {{ form.password1 }}
+        </div>
+        <h3>Confirm Password</h3>
+        <div id='inp'>
+            {{ form.password2 }}
+        </div>
+        <div id='err'>
+            
+        </div>
+        <button>Signup</button>
+    </form>
+</div>
