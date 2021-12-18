@@ -2,8 +2,8 @@
 <!DOCTYPE html>
 
 
-<style>
-    
+<style>   
+
     body{
         background : #008080;
         background-image : url('https://wallpapercave.com/wp/wp9764093.jpg');
@@ -66,15 +66,19 @@
         color : white;
         text-align : left;
         font-size : 25px;
-        margin-top : 50px;
         margin-left : 20px;
     }
-    .logbox div#up{
-        width : 100%;
-        margin-left : 100px;
+    .logbox h2{
+        color : white;
+        text-align : center;
+        font-size : 40px;
+    }
+    .logbox input{
+        width : 380px;
+        height : 30px;
     }
     .logbox button{
-        margin-top: 20px;
+        margin-top: 10px;
         width: 100%;
         background-color: #ffffff;
         color: #080710;
@@ -103,6 +107,7 @@
     .fp h3{
       text-align : center;
       font-size : 20px;
+        margin-top : -40px;
     }
  
 </style>
@@ -128,6 +133,7 @@
 <div class='logbox'>
     <form action="{% url 'login' %}" method='post'>
         {% csrf_tiken %}
+        <h2> LOGIN </h2>
         <h3>Username</h3>
         <div id='up'>
             {{ form.username }}
