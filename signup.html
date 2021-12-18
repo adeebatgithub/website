@@ -1,34 +1,71 @@
 
 <style>
     
+
     body{
         background : #008080;
+        background-image : url('https://wallpapercave.com/wp/wp9764093.jpg');
+    }
+    a{
+      color : white;
+      text-decoration : none;
+    }
+    a:hover{
+      color : blue;
     }
     .topbar{
         background : #333;
-        overflow : hidden;
+        width : 1470px;
+        height : 70px;
+        margin : auto;
+        padding : 10px;
+        position : relative;
     }
     .topbar h1{
         text-align : center;
+        font-size : 50px;
         color : white;
+        width : 50%;
+        margin : auto;
+        margin-top : 2px;
+        
+    }
+    .topbar button{
+        margin-top: -45px;
+        margin-right: 10px;
+        float : right;
+        width: 5%;
+        background-color: blue;
+        color: white;
+        padding: 10px 0;
+        font-size: 13px;
+        font-weight: 600;
+        border : none;
+        border-radius: 5px;
     }
     .box{
         background : #333;
-        width : 250px;
-        height : 280px;
+        width : 400px;
+        height : 500px;
         border : 10px solid white;
-        margin-left : 360;
-        margin-top : 200;
+        margin : auto;
         padding : 10px;
-        position : ;
+        position : relative;
+        margin-top : 10%;
     }
     .box h3{
-        text-align : left;
-        font-size : 17px;
         color : white;
+        text-align : left;
+        font-size : 25px;
+        margin-left : 10px;
+    }
+    .box h2{
+        color : white;
+        text-align : center;
+        font-size : 35px;
     }
     .box button{
-        margin-top: 110px;
+        margin-top: 35px;
         width: 100%;
         background-color: #ffffff;
         color: #080710;
@@ -37,37 +74,37 @@
         font-weight: 600;
         border-radius: 5px;
     }
-    .box #err{
-        color : white;
-        text-align : center;
+    .box button:hover{
+      color : red;
     }
-    .t{
-        color : white;
+    .box input{
+        width : 98%;
+        height : 25px;
     }
+ 
     
 </style>
+
+<!DOCTYPE html>
 
 <div class='topbar'>
     <h1>Test Site</h1>
 </div>
 
 <div class='box'>
-    <form action="{% url 'signup' %}" method='POST'>
-        {% csrf_token %}
+    <form action="{% url 'login' %}" method='post'>
+        <h2> Signup </h2>
         <h3>Username</h3>
-        <div id='inp'>
-            {{ form.username }}
+        <div id='up'>
+            <input>
         </div>
         <h3>Password</h3>
-        <div id='inp'>
-            {{ form.password1 }}
+        <div id='up'>
+            <input>
         </div>
-        <h3>Confirm Password</h3>
-        <div id='inp'>
-            {{ form.password2 }}
-        </div>
-        <div id='err'>
-            
+        <h3>confirm Password</h3>
+        <div id='up'>
+            <input>
         </div>
         <button>Signup</button>
     </form>
