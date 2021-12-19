@@ -46,7 +46,7 @@
     .box{
         background : #333;
         width : 400px;
-        height : 500px;
+        height : 540px;
         border : 10px solid white;
         margin : auto;
         padding : 10px;
@@ -65,7 +65,7 @@
         font-size : 35px;
     }
     .box button{
-        margin-top: 35px;
+        margin-top: 70px;
         width: 100%;
         background-color: #ffffff;
         color: #080710;
@@ -81,6 +81,11 @@
         width : 98%;
         height : 25px;
     }
+     h3#error{
+        color : red;
+        font-size : 20px;
+        text-align : center;
+    }
  
     
 </style>
@@ -92,20 +97,24 @@
 </div>
 
 <div class='box'>
-    <form action="{% url 'login' %}" method='post'>
+    <form action="{% url 'signup' %}" method='post'>
+        {% csrf_token %}
         <h2> Signup </h2>
         <h3>Username</h3>
         <div id='up'>
-            <input>
+            {{ form.username }}
         </div>
         <h3>Password</h3>
         <div id='up'>
-            <input>
+            {{ form.password1 }}
         </div>
         <h3>confirm Password</h3>
         <div id='up'>
-            <input>
+            {{ form.passeord2 }}
         </div>
+        {% if form.error %}
+            <h3 id='error'>somthing went wrong</h3>
+        {% endif %}
         <button>Signup</button>
     </form>
 </div>
