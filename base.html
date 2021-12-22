@@ -3,62 +3,54 @@
 
 <style>
 
-    body{
-        background : ;
+    .topbar{
+        background : #333;
+        width : 98%;
+        padding : 15px;
     }
-    .navbar a{
+    .topbar a{
         color : white;
         text-decoration : none;
-    }
-    .navbar{
-        background : #333;
-        overflow : hidden;
-        padding : 40px 20px;
-    }
-    .navbar .btn button{
-        padding : 10px 10px;
-        background : #333;
-        color : white;
-        border : none;
         font-size : 33px;
     }
-    .navbar .btn #home{
-        float : left;
+    .topbar a#home{
+        margin-left : 2%;
+        display : inline-block;
     }
-    .navbar .btn #logout{
+    a:hover{
+        color : red;
+    }
+    .topbar button{
+        margin-right: 10px;
         float : right;
+        width: 5%;
+        background-color: blue;
+        color: white;
+        padding: 10px 0;
+        font-size: 13px;
+        font-weight: 600;
+        border : none;
+        border-radius: 5px;
     }
-    .post a{
+    .topbar button:hover{
+        background : white;
         color : black;
-        text-decoration : none;
     }
     
 </style>
 
-<header>
-<nav class='navbar'>
-    <div class='btn'>
-        <a href="{% url 'post_list' %}">
-            <button id="home">
-                HOME
-            </button>
-        </a>
-        {% if user.is_authenticated %}
-            <a href="{% url 'logout' %}">
-                <button id='logout'>
-                    Logout
-                </button>
-            </a>
+<body>
+    <nav class='topbar'>
+        <a id='home' href="#"> HOME </a>
+        {% if user.authorized %}
+            <a href='#'><button> Logout </button></a>
         {% else %}
-            <a href="{% url 'login' %}">
-                <button id='logout'>
-                    Login
-                </button>
-            </a>
+            <a href='#'><button> Login </button></a>
+            <a href='#'><button>Signin</button></a>
         {% endif %}
-    </div>
-</nav>
-</header>
+        
+    </nav>
+</body>
 <div class='post'>
 {% block content %}
 
