@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+
+<style>
+
+    body{
+        background-image : url('https://wallpapercave.com/wp/wp9764093.jpg');
+        overflow : auto;
+    }
+    a{
+      color : white;
+      text-decoration : none;
+    }
+    a:hover{
+      color : blue;
+    }
+    .topbar{
+        background : #333;
+        width : 98%;
+        margin : auto;
+        padding : 10px;
+        position : relative;
+    }
+    .topbar h1{
+        text-align : center;
+        font-size : 50px;
+        color : white;
+        width : 50%;
+        margin : auto;
+        margin-top : 2px;
+        
+    }
+    .txt{
+        width : 40%;
+        margin : auto;
+        margin-left : 7%;
+        margin-top : 8%;
+        display : inline-block;
+        color : white;
+    
+    }
+    .txt h1{
+        font-size : 50px;
+        text-align : left;
+        margin-left : 10%;
+    }
+    .txt p{
+        font-size : 25px;
+        font-weight : 900;
+        margin-left : 10%;
+    }
+    .box{
+        background : #333;
+        width : 40%;
+        height : 530px;
+        border : 10px solid white;
+        margin : auto;
+        padding : 10px;
+        margin-top : 8%;
+        margin-left : 3%;
+        display : inline-block;
+        position : absolute;
+    }
+    .box h3{
+        color : white;
+        text-align : left;
+        font-size : 25px;
+        margin-left : 3%;
+    }
+    .box h2{
+        color : white;
+        text-align : center;
+        font-size : 35px;
+    }
+    .box button{
+        margin-top: 15%;
+        width: 100%;
+        background-color: #ffffff;
+        color: #080710;
+        padding: 15px 0;
+        font-size: 18px;
+        font-weight: 600;
+        border-radius: 5px;
+        border : none;
+    }
+    .box button:hover{
+        color : white;
+        background : blue;
+    }
+    .box input{
+        width : 98%;
+        height : 30px;
+        font-size : 15px;
+        font-weight : 600;
+    }
+    h3#error{
+        color : red;
+        font-size : 20px;
+        text-align : center;
+    }
+ 
+</style>
+<div class='topbar'>
+    <h1>Test Site</h1>
+</div>
+<div class='txt'>
+    <h1> Test Site </h1>
+    <p>someething</p>
+</div>
+<div class='box'>
+    <form action="{% url 'login' %}" method='post'>
+        {% csrf_token %}
+        <h2> Signup </h2>
+        <h3>Username</h3>
+        <div id='up'>
+            {{ form.username }}
+        </div>
+        <h3>Password</h3>
+        <div id='up'>
+            {{ form.password1 }}
+        </div>
+        <h3>Confirm Password</h3>
+        <div id='up'>
+            {{ form.password2 }}
+        </div>
+        {% if form.error %}
+            <h3 id='error'> somthing went wrong </h3>
+        {% endif %}
+        <button>Signup</button>
+    </form>
+</div>

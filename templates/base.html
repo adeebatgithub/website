@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+
+<style>
+
+    .topbar{
+        background : #333;
+        width : 97%;
+        padding : 15px;
+    }
+    .topbar a{
+        color : white;
+        text-decoration : none;
+        font-size : 33px;
+    }
+    .topbar a#home{
+        margin-left : 2%;
+        display : inline-block;
+    }
+    a:hover{
+        color : red;
+    }
+    .topbar button{
+        margin-right: 10px;
+        float : right;
+        width: 5%;
+        background-color: blue;
+        color: white;
+        padding: 10px 0;
+        font-size: 13px;
+        font-weight: 600;
+        border : none;
+        border-radius: 5px;
+    }
+    .topbar button:hover{
+        background : white;
+        color : black;
+    }
+    
+</style>
+
+<body>
+    <nav class='topbar'>
+        <a id='home' href="{% url 'post_list' %}"> HOME </a>
+        {% if user.authorized %}
+            <a href="{% url 'logout' %}"><button> Logout </button></a>
+        {% else %}
+            <a href="{% url 'login' %}"><button> Login </button></a>
+            <a href="{% url 'signup' %}"><button>Signup</button></a>
+        {% endif %}
+        
+    </nav>
+</body>
+<div class='post'>
+{% block content %}
+
+{% endblock %}
+</div>

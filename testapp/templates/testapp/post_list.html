@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<h1> Post </h1>
+<p>
+{% for post in posts %}
+<article>
+    <h2>
+        <a href="{% url 'post_details' pk=post.pk%}">
+            {{ post.title }}
+        </a>
+    </h2>
+    <p>
+        {{ post.text|linebreaksbr }}
+    </p>
+    <time>
+        Published : {{ post.published_date }}
+    </time>
+</article>
+{% endfor %}
+<a href = "{% url 'post_new' %}">New Post</a>
+</p>
+{% endblock %}
